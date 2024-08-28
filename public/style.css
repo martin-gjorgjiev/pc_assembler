@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto",'Times New Roman', Times, serif;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar {
+  font-size: 25px;
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 25px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #8f96fc;
+  color: #050447;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 6;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navvertical{
+  list-style: none;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  overflow-wrap: break-word;
+}
+
+.navvertical li a{
+  display: block;
+  text-decoration: none;
+  background-color: rgb(118, 163, 248);
+  padding: 12px;
+  color:black;
+}
+
+.navvertical li a:hover{
+  background-color: rgb(162, 194, 252);
+  color:black;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 23px;
+  text-align: left;
+  margin-right: auto;
+}
+
+.flex-item-left {
+  /*background-color: rgb(157, 255, 0);*/
+  flex: 10%;
+  max-width: 10%;
+}
+
+.flex-item-middle {
+  background-color: white;
+  flex: 65%;
+  max-width: 65%;
+}
+
+.flex-item-right {
+  /*background-color: aquamarine;*/
+  flex: 25%;
+  max-width: 25%;
+}
+
+/*vertical and small screen*/
+@media (max-width: 1000px) {
+  .flex-item-right, .flex-item-left, .flex-item-middle {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.chattitle{
+  background-color: #F095A1;/*rgb(227, 227, 227);*/
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+}
+
+.chatbody{
+  background-color: aliceblue;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.chattail{
+  background-color: #F93559;/*rgb(207, 207, 207);*/
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.bubble{
+  background-color:rgb(193, 240, 255);
+  border: 1px solid rgb(0, 140, 255);
+  border-radius: 15px;
+  padding: 8px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline-block;
+  color:rgb(0, 140, 255);
+}
+
+.msg{
+  border-radius: 40px;
+  padding: 8px;
+  text-align: center;
+  display:block;
+  margin: 10px;
+  width: 80%;
+}
+
+.bot{
+  background-color: #87F1FF; /*rgb(92, 56, 253);*/
+  border-bottom-left-radius: 0px;
+  float: left;
+}
+
+.user{
+  background-color: #C0F5FA; /*rgb(148, 151, 151);*/
+  border-bottom-right-radius: 0px;
+  float: right;
+}
+
+.carttitle{
+  background-color: #DFCACE;
+}
+
+.cartbody{
+  background-color: #EDE2E3;
+}
+
+.message{
+  text-shadow: none;
+}
+
+.response{
+  text-shadow: none;
+}
+
+.itemdiv{
+  padding: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: black;
+  vertical-align: top;
+}
+
+.login-contanier{
+  background-color: white;
+  padding: 10px;
+  position: absolute;
+  height: 450px;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-contanier input{
+  width: 100%;
+  
+}
+
+.login-contanier *{
+  padding: 10px 0px;
+  font-size: x-large;
+  text-align: center;
+}
+
+.login-contanier h1{
+  border-bottom-color: #cccccc;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  font-size: 38px;
+}
+
+.rounded{
+  border-radius: 20px;
+  border-color: #888888;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.shadow{
+  box-shadow: 5px 10px 5px lightblue;
+}
+
+.btn1{
+  width: 100%;
+  padding-top: 10px;
+}
+
+.grid-container{
+  display: grid;
+  width: 70%;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 140px);
+  padding: 10px;
+}
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  overflow-wrap: break-word;
+  padding-bottom: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.frm1{
+  width: 400px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.frm1 input{
+  margin: 5px;
+}
+
+.frm1 label{
+  display:inline-block;
+  width: 30%;
+}
+
+.frm1 li{
+  list-style-type: none;
+}
+
+.grid-container2{
+  display: grid;
+  row-gap: 20px;
+  /*grid-template-columns: 110px 700px 80px;*/
+  grid-template-columns: 110px 9fr 1fr;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.centerdiv{
+  text-align: center;
+  margin: auto;
+}
+
+.card2{
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.card2 button, .card2 img{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card2 p{
+  padding-left: 10px;
+  text-align: left;
+}
+
+.content80{
+  width: 80%;
+}
+
+.content70{
+  width: 70%;
+}
+
+.critical div{
+  background-color: #f36055;
+  border-color: #f44336;
+}
+
+.alert div{
+  background-color: #fcb54a;
+  border-color: #ff9800;
+}
+
+.bldmessage div{
+  padding: 20px;
+  color: white;
+  border: 1px solid;
+  margin-bottom: 15px;
+}
+
+/* fix to remove arrows 
+table.dataTable>thead .sorting::before,
+table.dataTable>thead .sorting_asc::before,
+table.dataTable>thead .sorting_desc::before,
+table.dataTable>thead .sorting_asc_disabled::before,
+table.dataTable>thead .sorting_desc_disabled::before {
+    right: 0 !important;
+    content: "" !important;
+}
+  
+ table.dataTable>thead .sorting::after,
+ table.dataTable>thead .sorting_asc::after,
+ table.dataTable>thead .sorting_desc::after,
+ table.dataTable>thead .sorting_asc_disabled::after,
+ table.dataTable>thead .sorting_desc_disabled::after {
+    right: 0 !important;
+    content: "" !important;
+}
+  
+ table.dataTable>thead>tr>th:not(.sorting_disabled),
+ table.dataTable>thead>tr>td:not(.sorting_disabled) {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+  
+ table.dataTable>thead>tr>th,
+ table.dataTable>thead>tr>td {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}*/
+
+.dataTable thead .sorting_asc::after,
+.dataTable thead .sorting_desc::after,
+.dataTable thead .sorting::after {
+    padding-top: 0.25rem !important;
+}

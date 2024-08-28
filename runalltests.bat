@@ -1,0 +1,1 @@
+powershell "php vendor/bin/codecept run --steps | Tee-Object -FilePath tests/codeception/testoutput.txt"

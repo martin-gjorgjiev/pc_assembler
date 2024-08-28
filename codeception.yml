@@ -1,0 +1,48 @@
+namespace: Tests
+support_namespace: Support
+# suite config
+suites:
+    acceptance:
+        actor: AcceptanceTester
+        path: .
+        modules:
+            enabled:
+                - WebDriver:
+                    url: https://localhost/pc_parts_assembler_app/public/index.php
+                    browser: firefox
+                    capabilities:
+                        acceptInsecureCerts: true
+                - Db:
+                    dsn: 'mysql:host=localhost;dbname=pcparts_test'
+                    user: 'root'
+                    password: ''
+                    dump: 'tests/codeception/Support/Data/pcparts_test.sql'
+                    #codecept populator and cleanup is too slow
+                    cleanup: true # run populator before each test
+                    populate: true # run populator before all test
+                
+        # add Codeception\Step\Retry trait to AcceptanceTester to enable retries
+        step_decorators:
+            - Codeception\Step\ConditionalAssertion
+            - Codeception\Step\TryTo
+            - Codeception\Step\Retry
+
+extensions:
+    enabled: [Codeception\Extension\RunFailed]
+
+params: 
+    - env
+
+gherkin: []    
+
+# additional paths
+paths:
+    tests: tests/codeception
+    output: tests/codeception/_output
+    data: tests/codeception/Support/Data
+    support: tests/codeception/Support
+    envs: tests/codeception/_envs
+
+settings:
+    shuffle: false
+    lint: true
