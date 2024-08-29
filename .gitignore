@@ -149,4 +149,7 @@ application/logs/*
 /vendor/
 
 #codeception output
-tests\codeception\testoutput.txt
+tests/codeception/testoutput.txt
+
+#images folder
+public/img/
