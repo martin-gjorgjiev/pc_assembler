@@ -17,7 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://localhost/pc_parts_assembler_app/public/';
+    public string $baseURL = 'http://localhost/pc_assembler/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
