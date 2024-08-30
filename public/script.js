@@ -4,13 +4,6 @@ var the_token = document.head.querySelector("[name~=X-CSRF-TOKEN][content]").con
 var columnoptions;
 var chatdata;
 const bottalk=["Hello, I'm your PC assistant.","Please pick the category you want to choose from."];
-/*var questions=['CPU','Motherboard','RAM','GPU','Power Supply','Storage','Case'];
-var cpuquestions=['Select CPU socket','Select CPU series','Do you want integrated graphics?'];
-var moboquestions=['Select CPU socket','Select motherboard chipset','Select RAM type','Do you want M.2 slot?'];
-var ramquestions=['Select RAM type','Select RAM speed (MHz)', 'Select RAM size (GB)'];
-var gpuquestions=['Select GPU series'];
-var psuquestions=['Select PSU wattage'];
-var storagequestions=['Select storage type','Select storage size (GB)'];*/
 const questionsObj={
     "CPU":['Select maker','Select CPU socket','Select CPU series','Do you want integrated graphics?','Your options are:'],
     "Motherboard":['Select CPU socket','Select motherboard chipset','Select RAM type','Do you want M.2 slot?','Your options are:'],
@@ -220,13 +213,6 @@ function readItems(){
     Object.keys(questionsObj).forEach(element => {
         readItem(element);
     });
-    //old
-    /*readItem('cpu');
-    readItem('mobo');
-    readItem('ram');
-    readItem('gpu');
-    readItem('psu');
-    readItem('storage');*/
     readItem('pccase');
 }
 
@@ -247,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
         readItems();
         document.getElementById('chatbody').style.display = "none";
         appendBot(bottalk[0]);
-        //console.log('components open');
     }
 
     if(window.location.href.includes('yourbuild')){
@@ -261,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function onStart(){
     //it will execute when chat is started clicked to open
     appendBot(bottalk[1]);
-    //appendQuestion(questions);
     appendQuestion(Object.keys(questionsObj));
 }
 
@@ -288,7 +272,6 @@ function bubbleSelect(){
     appendUser(questionsselected[i]);
 
     //remove former options
-    //console.log(questionsselected[i]);
     removeBubbles();
 
     if(i>=0 && i<questionsObj[questionsselected[0]].length){
@@ -297,15 +280,6 @@ function bubbleSelect(){
 
         //send selection to server
         sendQuery(endpointObj[questionsselected[0]],questionsselected);
-
-        /*old while testing
-        switch(questionsselected[i]){
-            case 'CPU':
-                appendBot(cpuquestions[1]);
-                break;
-            default:
-                break;
-        }*/
     }
     
     if(i>0 && i>=questionsObj[questionsselected[0]].length){
@@ -405,7 +379,6 @@ function printNewLine(){
 }
 
 function removeBubbles(){
-    //document.querySelectorAll(".bubble").remove();
     var varbubble=document.getElementById('bubblediv');
     if(varbubble!=null){
         varbubble.remove();
@@ -498,28 +471,6 @@ function sendQuery(urlendpoint,selectiondata){
 
 //handle fetch result
 function resultReslover(thisresult){
-    //check response code, outdated
-    /*if(response_status==200){
-        //when response is success
-        if(thisresult.length>0){
-            if(Object.keys(thisresult[0])[0]=='id'){
-                sessionStorage.setItem(temppart,JSON.stringify(thisresult[0]));
-                readItems();
-            }else{
-                setTimeout(() => {appendQuestion(thisresult)},200);
-                //appendQuestion(thisresult);
-                appendStartOver("⟳Start over");
-            }       
-        }else{
-            appendBot("It appears that there are no results.");
-            appendStartOver("⟳Start over");
-        }*/
-    /*}else{
-        appendBot("Error has occured");
-        appendStartOver("⟳Start over");
-    }*/
-   
-
     if(thisresult.length>0){
         if(Object.keys(thisresult[0])[0]=='id'){
             Cookies.set(temppart,JSON.stringify(thisresult[0]),{path:'/',sameSite:'lax',secure: true});
@@ -779,4 +730,3 @@ function checkchipset(urlendpoint,cpuid,chipset){
     })
     .catch(error => console.log('error', error));
 }
-//Cookies.set('name','value',{path:'/',sameSite:'lax',secure: true});
