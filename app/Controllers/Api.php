@@ -181,27 +181,4 @@ class Api extends BaseController
         }
     }
 
-    public function testq(){
-        helper('filesystem');
-        //var_dump($this->request->getPost('questionsselected'));
-        //write_file('smth.txt',var_export($_POST,true));
-        //write_file('smth.txt',var_export(file_get_contents('php://input'),true));
-        write_file('smth.txt',var_export($this->request->getVar('questionsselected'),true));
-        $post = ['test1','test2'];
-        return json_encode($post);
-    }
-
-    public function test2(){
-        $post = [
-            'success' => true,
-            'id'      => 123,
-        ];
-        return $this->setResponseFormat('json')->respond($post, 200);
-    }
-
-    public function test3(){
-        helper('cookie');
-        $var=json_decode(get_cookie('Motherboard'));
-        return var_dump($var);
-    }
 }

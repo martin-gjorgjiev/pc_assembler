@@ -30,15 +30,6 @@ class Workspace extends BaseController
             $crud->displayAs('supportedmemspeed','Max memory speed (MHz)');
             $crud->displayAs('supportedmemsize','Max memory size (GB)');
             $crud->displayAs('imgloc','Image location');
-            //$crud->fieldType('integrated_gpu','checkbox_boolean');
-            /*$crud->addFields(['upload']);
-            $crud->setFieldUpload('upload', 'public/img', base_url() . '/public/img');
-            $crud->callbackEditField('upload',function ($value, $row) {
-                return "<input type='file'/>";
-            });
-            $crud->callbackBeforeUpdate(function($stateParameters){
-                return _fileUpload($stateParameters);
-            });*/
             $crud->setClone();
 	        $output = $crud->render();
 		    return $this->_exampleOutput($output);
@@ -172,7 +163,6 @@ class Workspace extends BaseController
         if($session->get('accesslvl')>0){
             $crud = new GroceryCrud();
             $crud->setTable('series');
-            //$crud->fieldType('is_cpu','checkbox_boolean');
 	        $output = $crud->render();
 		    return $this->_exampleOutput($output);
         }else{
@@ -262,25 +252,13 @@ class Workspace extends BaseController
             $crud->unsetExport();
             $crud->unsetPrint();
             $crud->fieldType('password','password');
-            /*$crud->editFields(['email','password','new_password','accesslvl']);
-
-            $crud->callbackEditField('new_password', function ($fieldValue, $primaryKeyValue, $rowData) {
-                return '<input type="password" id="field-new_password" class="form-control" name="new_password" value=""/>';
-            });*/
 
             $crud->callbackBeforeInsert(function ($stateParameters){
                 $stateParameters->data['password']=password_hash($stateParameters->data['password'], PASSWORD_DEFAULT);
                 return $stateParameters;
             });
             $crud->callbackBeforeUpdate(function ($stateParameters){
-                /*if($stateParameters->data['new_password']!=''){
-                    $stateParameters->data['new_password']=password_hash($stateParameters->data['new_password'], PASSWORD_DEFAULT);
-                }
-                if($stateParameters->data['new_password']!='' && $stateParameters->data['new password']!==$stateParameters->data['password']){
-                    $stateParameters->data['password']=$stateParameters->data['new_password'];
-                }*/
                 $stateParameters->data['password']=password_hash($stateParameters->data['password'], PASSWORD_DEFAULT);
-                /*unset($stateParameters->data['new_password']);*/
                 return $stateParameters;
             });
 
@@ -307,26 +285,13 @@ class Workspace extends BaseController
             $crud->setActionButton('Edit', 'ui-button-icon-primary ui-icon ui-icon-pencil', function ($row) {
                 return base_url().'workspace/users/edituserform/'.$row;
             }, false);
-            /*$crud->editFields(['email','password','new_password','accesslvl']);
-
-            $crud->callbackEditField('new_password', function ($fieldValue, $primaryKeyValue, $rowData) {
-                return '<input type="password" id="field-new_password" class="form-control" name="new_password" value=""/>';
-            });*/
 
             $crud->callbackBeforeInsert(function ($stateParameters){
                 $stateParameters->data['password']=password_hash($stateParameters->data['password'], PASSWORD_DEFAULT);
                 return $stateParameters;
             });
             $crud->callbackBeforeUpdate(function ($stateParameters){
-                //outdated
-                /*if($stateParameters->data['new_password']!=''){
-                    $stateParameters->data['new_password']=password_hash($stateParameters->data['new_password'], PASSWORD_DEFAULT);
-                }
-                if($stateParameters->data['new_password']!='' && $stateParameters->data['new password']!==$stateParameters->data['password']){
-                    $stateParameters->data['password']=$stateParameters->data['new_password'];
-                }*/
                 $stateParameters->data['password']=password_hash($stateParameters->data['password'], PASSWORD_DEFAULT);
-                /*unset($stateParameters->data['new_password']);*/
                 return $stateParameters;
             });
 
